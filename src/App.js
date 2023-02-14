@@ -1,11 +1,14 @@
 import GlobalStyle from "./GlobalStyle";
 import { FirstPage } from "./pages/FirstPage";
+import LanguageAndThemeContextProvider from "./contexts/LanguageAndThemeContext";
 
 function App() {
 	return (
 		<>
 			<GlobalStyle />
-			<FirstPage />
+			<LanguageAndThemeContextProvider>
+				<FirstPage />
+			</LanguageAndThemeContextProvider>
 		</>
 	);
 }

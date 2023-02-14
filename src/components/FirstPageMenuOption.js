@@ -21,6 +21,7 @@ export const FirstPageMenuOption = (props) => {
 const MainMenuOption = styled.li`
 	padding-block: 0.5rem;
 	line-height: 1.5rem;
+	width: fit-content;
 
 	display: inline-block;
 	flex-direction: column;
@@ -45,9 +46,9 @@ const MainMenuOption = styled.li`
 				color: ${colors.gray};
 				font-weight: 200;
 
-				opacity: 100%;
+				opacity: 120%;
 
-				transition: font-size 0.6s, color 1s cubic-bezier(0.19, 1, 0.22, 1);
+				transition: font-size 0.6s, opacity 0.6s;
 			}
 		}
 
@@ -76,7 +77,7 @@ const MainMenu = styled.div`
 			color: ${colors.gray};
 			font-weight: 200;
 
-			opacity: 50%;
+			opacity: 45%;
 		}
 	}
 `;
