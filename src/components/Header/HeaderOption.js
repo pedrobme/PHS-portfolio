@@ -1,8 +1,8 @@
 import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import { useContext } from "react";
 import styled from "styled-components";
-import { themes } from "../CONSTS/THEMES";
-import { LanguageAndThemeContext } from "../contexts/LanguageAndThemeContext";
+import { themes } from "../../CONSTS/THEMES";
+import { LanguageAndThemeContext } from "../../contexts/LanguageAndThemeContext";
 
 const HeaderOption = ({ text }) => {
 	const { theme } = useContext(LanguageAndThemeContext);

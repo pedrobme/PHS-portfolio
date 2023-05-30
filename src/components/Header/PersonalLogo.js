@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import { translations } from "../CONSTS/TRANSLATIONS.js";
+import { translations } from "../../CONSTS/TRANSLATIONS.js";
 
 export const PersonalLogo = () => {
 	const [isHovered, setIsHovered] = useState(false);
