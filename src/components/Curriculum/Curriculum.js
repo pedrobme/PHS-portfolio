@@ -4,37 +4,54 @@ import img from "../../assets/img/profilepicture.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
 
-const CurriculumComponent = ({ theme, language }) => {
+const AboutMeComponent = ({ theme, language }) => {
 	return (
-		<SectionContainer theme={theme} fontStyling={FontStyling}>
-			<h3>{translations[language].headerFirstOption}</h3>
-			<AboutMe>
-				<AboutMeText theme={theme}>
-					<p>{translations[language].resumeAboutMeP1}</p>
-					<p>{translations[language].resumeAboutMeP2}</p>
-					<p>{translations[language].resumeAboutMeP3}</p>
-					<p>{translations[language].resumeAboutMeP4}</p>
-					<p>{translations[language].resumeAboutMeP5}</p>
-					<p>{translations[language].resumeAboutMeP6}</p>
-				</AboutMeText>
-				<ProfileImage src={img} />
-			</AboutMe>
+		<SectionContainer
+			id="headerFourthOption"
+			theme={theme}
+			fontStyling={FontStyling}
+		>
+			<FitingDiv theme={theme}>
+				<h3>{translations[language].headerFirstOption}</h3>
+				<AboutMe>
+					<AboutMeText theme={theme}>
+						<p>{translations[language].resumeAboutMeP1}</p>
+						<p>{translations[language].resumeAboutMeP2}</p>
+						<p>{translations[language].resumeAboutMeP3}</p>
+						<p>{translations[language].resumeAboutMeP4}</p>
+						<p>{translations[language].resumeAboutMeP5}</p>
+						<p>{translations[language].resumeAboutMeP6}</p>
+					</AboutMeText>
+					<ProfileImage src={img} />
+				</AboutMe>
+			</FitingDiv>
 		</SectionContainer>
 	);
 };
 
-export default CurriculumComponent;
+export default AboutMeComponent;
 
 // Styled Components
 
 const SectionContainer = styled.div`
-	padding: 2rem;
 	height: calc(100vh - 5rem);
+
 	background-color: ${(props) => {
 		return themes[props.theme].pagesBackground;
 	}};
+`;
 
-	border-radius: 2rem;
+const FitingDiv = styled.div`
+	width: 75%;
+	height: 100%;
+	max-width: 1280px;
+
+	margin: auto;
+
+	position: relative;
+	z-index: 0;
+
+	padding: 2rem;
 
 	> h3 {
 		color: ${(props) => {
@@ -44,9 +61,6 @@ const SectionContainer = styled.div`
 		pointer-events: none;
 		margin-bottom: 1rem;
 	}
-
-	position: relative;
-	z-index: 0;
 `;
 
 const AboutMe = styled.div`
@@ -66,7 +80,7 @@ const AboutMeText = styled.div`
 	background-color: rgba(255, 255, 0, 0.95);
 
 	position: absolute;
-	top: 8rem;
+	top: 21%;
 	width: 500px;
 
 	> p {
@@ -82,7 +96,7 @@ const AboutMeText = styled.div`
 
 const ProfileImage = styled.img`
 	position: absolute;
-	right: 3rem;
+	right: 0;
 	width: 600px;
 	border-radius: 2rem;
 `;

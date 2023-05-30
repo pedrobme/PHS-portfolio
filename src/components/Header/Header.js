@@ -5,27 +5,71 @@ import { translations } from "../../CONSTS/TRANSLATIONS";
 import { LanguageAndThemeContext } from "../../contexts/LanguageAndThemeContext";
 import HeaderOption from "./HeaderOption";
 import { PersonalLogo } from "./PersonalLogo";
+import { Link } from "react-scroll";
+import { SelectedSectionContext } from "../../contexts/SelectedSectionContext";
 
 const Header = () => {
 	const { theme, language } = useContext(LanguageAndThemeContext);
+
+	const { selectedSection } = useContext(SelectedSectionContext);
 
 	return (
 		<>
 			<HeaderContainer theme={theme}>
 				<PersonalLogo></PersonalLogo>
 				<HeaderOptionsDiv>
-					<HeaderOption
-						text={translations[language].headerFirstOption}
-					></HeaderOption>
-					<HeaderOption
-						text={translations[language].headerSecondOption}
-					></HeaderOption>
-					<HeaderOption
-						text={translations[language].headerThirdOption}
-					></HeaderOption>
-					<HeaderOption
-						text={translations[language].headerFourthOption}
-					></HeaderOption>
+					<Link
+						to="headerFirstOption"
+						spy={true}
+						smooth={true}
+						offset={-62}
+						duration={500}
+					>
+						<HeaderOption
+							optionId={"headerFirstOption"}
+							isSelected={selectedSection === "headerFirstOption"}
+							text={translations[language].headerFirstOption}
+						></HeaderOption>
+					</Link>
+					<Link
+						to="headerSecondOption"
+						spy={true}
+						smooth={true}
+						offset={-62}
+						duration={500}
+					>
+						<HeaderOption
+							optionId={"headerSecondOption"}
+							isSelected={selectedSection === "headerSecondOption"}
+							text={translations[language].headerSecondOption}
+						></HeaderOption>
+					</Link>
+					<Link
+						to="headerThirdOption"
+						spy={true}
+						offset={-62}
+						smooth={true}
+						duration={500}
+					>
+						<HeaderOption
+							optionId={"headerThirdOption"}
+							isSelected={selectedSection === "headerThirdOption"}
+							text={translations[language].headerThirdOption}
+						></HeaderOption>
+					</Link>
+					<Link
+						to="headerFourthOption"
+						spy={true}
+						offset={-62}
+						smooth={true}
+						duration={500}
+					>
+						<HeaderOption
+							optionId={"headerFourthOption"}
+							isSelected={selectedSection === "headerFourthOption"}
+							text={translations[language].headerFourthOption}
+						></HeaderOption>
+					</Link>
 				</HeaderOptionsDiv>
 				<ContactMeButton>{translations[language].contactMe}</ContactMeButton>
 			</HeaderContainer>
