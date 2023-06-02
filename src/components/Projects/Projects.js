@@ -7,7 +7,7 @@ import { FontStyling } from "../../CONSTS/FONTSTYLE";
 const AboutMeComponent = ({ theme, language }) => {
 	return (
 		<SectionContainer
-			id="headerThirdOption"
+			id="headerFirstOption"
 			theme={theme}
 			fontStyling={FontStyling}
 		>
@@ -81,7 +81,8 @@ const AboutMeText = styled.div`
 
 	position: absolute;
 	top: 21%;
-	width: 500px;
+	width: 50%;
+	max-width: 500px;
 
 	> p {
 		color: #000000;
@@ -97,6 +98,8 @@ const AboutMeText = styled.div`
 const ProfileImage = styled.img`
 	position: absolute;
 	right: 0;
-	width: 600px;
+	width: 60%;
+	max-width: 600px;
+
 	border-radius: 2rem;
 `;

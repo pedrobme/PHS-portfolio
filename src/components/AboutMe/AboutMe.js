@@ -73,15 +73,20 @@ const AboutMeText = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 2rem;
+	width: 50%;
+	max-width: 500px;
 
-	border-radius: 2rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	padding: 2rem;
 
 	background-color: rgba(255, 255, 0, 0.95);
 
+	border-radius: 1rem;
+
 	position: absolute;
-	top: 21%;
-	width: 500px;
+	top: 25%;
 
 	> p {
 		color: #000000;
@@ -91,12 +96,29 @@ const AboutMeText = styled.div`
 		margin-bottom: 1rem;
 	}
 
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: rgba(128, 128, 128, 0.5);
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 2rem;
+		background: rgba(71, 74, 81, 0.5);
+		border: 6px solid rgba(0, 0, 0, 0.2);
+	}
+
 	z-index: 2;
 `;
 
 const ProfileImage = styled.img`
 	position: absolute;
 	right: 0;
-	width: 600px;
+	top: 22%;
+	width: 50%;
+
 	border-radius: 2rem;
 `;
