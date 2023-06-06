@@ -7,23 +7,23 @@ import { FontStyling } from "../../CONSTS/FONTSTYLE";
 const AboutMeComponent = ({ theme, language }) => {
 	return (
 		<SectionContainer
-			id="headerFirstOption"
+			id="headerThirdOption"
 			theme={theme}
 			fontStyling={FontStyling}
 		>
 			<FitingDiv theme={theme}>
 				<h3>{translations[language].headerFirstOption}</h3>
-				<AboutMe>
-					<AboutMeText theme={theme}>
-						<p>{translations[language].resumeAboutMeP1}</p>
-						<p>{translations[language].resumeAboutMeP2}</p>
-						<p>{translations[language].resumeAboutMeP3}</p>
-						<p>{translations[language].resumeAboutMeP4}</p>
-						<p>{translations[language].resumeAboutMeP5}</p>
-						<p>{translations[language].resumeAboutMeP6}</p>
-					</AboutMeText>
+				<AboutMeText theme={theme}>
+					<p>{translations[language].resumeAboutMeP1}</p>
+					<p>{translations[language].resumeAboutMeP2}</p>
+					<p>{translations[language].resumeAboutMeP3}</p>
+					<p>{translations[language].resumeAboutMeP4}</p>
+					<p>{translations[language].resumeAboutMeP5}</p>
+					<p>{translations[language].resumeAboutMeP6}</p>
+				</AboutMeText>
+				<ProfileImageContainer>
 					<ProfileImage src={img} />
-				</AboutMe>
+				</ProfileImageContainer>
 			</FitingDiv>
 		</SectionContainer>
 	);
@@ -42,9 +42,9 @@ const SectionContainer = styled.div`
 `;
 
 const FitingDiv = styled.div`
-	width: 75%;
-	height: 100%;
-	max-width: 1280px;
+	width: 80%;
+	min-width: 600px;
+	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;
 
@@ -63,43 +63,63 @@ const FitingDiv = styled.div`
 	}
 `;
 
-const AboutMe = styled.div`
-	display: flex;
-`;
-
 const AboutMeText = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+	width: 40%;
+	padding: 1rem;
 
-	padding: 2rem;
+	max-height: 300px;
 
-	border-radius: 2rem;
+	overflow-y: scroll;
 
 	background-color: rgba(255, 255, 0, 0.95);
 
 	position: absolute;
-	top: 21%;
-	width: 50%;
-	max-width: 500px;
+	left: 20px;
+	top: 100%;
+
+	border-radius: 10px;
+	z-index: 10;
+
+	user-select: none;
 
 	> p {
 		color: #000000;
 
 		font-weight: 600;
 
-		margin-bottom: 1rem;
+		margin-block: 1rem;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: rgba(128, 128, 128, 0.5);
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 2rem;
+		background: rgba(71, 74, 81, 0.5);
+		border: 6px solid rgba(0, 0, 0, 0.2);
 	}
 
 	z-index: 2;
 `;
 
-const ProfileImage = styled.img`
+const ProfileImageContainer = styled.div`
+	display: block;
+	width: 50%;
+	height: 400px;
 	position: absolute;
-	right: 0;
-	width: 60%;
-	max-width: 600px;
+	right: 10%;
+`;
 
-	border-radius: 2rem;
+const ProfileImage = styled.img`
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+
+	object-fit: cover;
 `;

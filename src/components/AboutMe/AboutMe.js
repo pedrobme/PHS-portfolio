@@ -13,17 +13,17 @@ const AboutMeComponent = ({ theme, language }) => {
 		>
 			<FitingDiv theme={theme}>
 				<h3>{translations[language].headerFirstOption}</h3>
-				<AboutMe>
-					<AboutMeText theme={theme}>
-						<p>{translations[language].resumeAboutMeP1}</p>
-						<p>{translations[language].resumeAboutMeP2}</p>
-						<p>{translations[language].resumeAboutMeP3}</p>
-						<p>{translations[language].resumeAboutMeP4}</p>
-						<p>{translations[language].resumeAboutMeP5}</p>
-						<p>{translations[language].resumeAboutMeP6}</p>
-					</AboutMeText>
+				<AboutMeText theme={theme}>
+					<p>{translations[language].resumeAboutMeP1}</p>
+					<p>{translations[language].resumeAboutMeP2}</p>
+					<p>{translations[language].resumeAboutMeP3}</p>
+					<p>{translations[language].resumeAboutMeP4}</p>
+					<p>{translations[language].resumeAboutMeP5}</p>
+					<p>{translations[language].resumeAboutMeP6}</p>
+				</AboutMeText>
+				<ProfileImageContainer>
 					<ProfileImage src={img} />
-				</AboutMe>
+				</ProfileImageContainer>
 			</FitingDiv>
 		</SectionContainer>
 	);
@@ -42,9 +42,9 @@ const SectionContainer = styled.div`
 `;
 
 const FitingDiv = styled.div`
-	width: 75%;
-	height: 100%;
-	max-width: 1280px;
+	width: 80%;
+	min-width: 600px;
+	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;
 
@@ -63,37 +63,31 @@ const FitingDiv = styled.div`
 	}
 `;
 
-const AboutMe = styled.div`
-	display: flex;
-`;
-
 const AboutMeText = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+	width: 45%;
+	padding: 1rem;
 
-	width: 50%;
-	max-width: 500px;
+	max-height: 300px;
 
 	overflow-y: scroll;
-	overflow-x: hidden;
-
-	padding: 2rem;
 
 	background-color: rgba(255, 255, 0, 0.95);
 
-	border-radius: 1rem;
-
 	position: absolute;
-	top: 25%;
+	left: 5px;
+	top: 100%;
+
+	border-radius: 10px;
+	z-index: 10;
+
+	user-select: none;
 
 	> p {
 		color: #000000;
 
 		font-weight: 600;
 
-		margin-bottom: 1rem;
+		margin-block: 1rem;
 	}
 
 	::-webkit-scrollbar {
@@ -114,11 +108,18 @@ const AboutMeText = styled.div`
 	z-index: 2;
 `;
 
-const ProfileImage = styled.img`
-	position: absolute;
-	right: 0;
-	top: 22%;
+const ProfileImageContainer = styled.div`
+	display: block;
 	width: 50%;
+	height: 400px;
+	position: absolute;
+	right: 10%;
+`;
 
-	border-radius: 2rem;
+const ProfileImage = styled.img`
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+
+	object-fit: cover;
 `;
