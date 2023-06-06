@@ -7,9 +7,32 @@ import AboutMeComponent from "../components/AboutMe/AboutMe";
 import ExperienceComponent from "../components/Experience/Experience";
 import ProjectsComponent from "../components/Projects/Projects";
 import CurriculumComponent from "../components/Curriculum/Curriculum";
+import { useEffect } from "react";
+import { SelectedSectionContext } from "../contexts/SelectedSectionContext";
 
 export const FirstPage = () => {
 	const { theme, language } = useContext(LanguageAndThemeContext);
+
+	const { setSelectedSection } = useContext(SelectedSectionContext);
+
+	const listenScrollEvent = () => {
+		if (window.scrollY <= 400) {
+			setSelectedSection("headerFirstOption");
+		} else if (window.scrollY <= 900) {
+			setSelectedSection("headerSecondOption");
+		} else if (window.scrollY <= 1400) {
+			setSelectedSection("headerThirdOption");
+		} else {
+			setSelectedSection("headerFourthOption");
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", listenScrollEvent);
+		return () => {
+			window.removeEventListener("scroll", listenScrollEvent);
+		};
+	}, []);
 
 	return (
 		<Container theme={theme}>

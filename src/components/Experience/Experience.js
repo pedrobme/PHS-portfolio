@@ -3,6 +3,7 @@ import { themes } from "../../CONSTS/THEMES";
 import img from "../../assets/img/profilepicture.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
+import ExperienceLi from "./ExperienceLi";
 
 const AboutMeComponent = ({ theme, language }) => {
 	return (
@@ -12,18 +13,27 @@ const AboutMeComponent = ({ theme, language }) => {
 			fontStyling={FontStyling}
 		>
 			<FitingDiv theme={theme}>
-				<h3>{translations[language].headerFirstOption}</h3>
-				<AboutMeText theme={theme}>
-					<p>{translations[language].resumeAboutMeP1}</p>
-					<p>{translations[language].resumeAboutMeP2}</p>
-					<p>{translations[language].resumeAboutMeP3}</p>
-					<p>{translations[language].resumeAboutMeP4}</p>
-					<p>{translations[language].resumeAboutMeP5}</p>
-					<p>{translations[language].resumeAboutMeP6}</p>
-				</AboutMeText>
-				<ProfileImageContainer>
-					<ProfileImage src={img} />
-				</ProfileImageContainer>
+				<h3>{translations[language].headerSecondOption}</h3>
+				<ExperiencesUl>
+					<ExperienceLi competence="git" level={1} />
+					<ExperienceLi competence="react" level={2} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+					<ExperienceLi competence="node" level={3} />
+				</ExperiencesUl>
 			</FitingDiv>
 		</SectionContainer>
 	);
@@ -43,6 +53,7 @@ const SectionContainer = styled.div`
 
 const FitingDiv = styled.div`
 	width: 80%;
+	height: 100%;
 	min-width: 600px;
 	max-width: calc(60 / 100 * 1480px);
 
@@ -63,32 +74,27 @@ const FitingDiv = styled.div`
 	}
 `;
 
-const AboutMeText = styled.div`
-	width: 40%;
-	padding: 1rem;
-
-	max-height: 300px;
-
-	overflow-y: scroll;
-
-	background-color: rgba(255, 255, 0, 0.95);
-
-	position: absolute;
-	left: 20px;
-	top: 100%;
+const ExperiencesUl = styled.ul`
+	background-color: #ffffff;
+	width: 100%;
+	height: 80%;
 
 	border-radius: 10px;
-	z-index: 10;
 
-	user-select: none;
+	display: flex;
 
-	> p {
-		color: #000000;
+	align-items: center;
+	justify-content: center;
 
-		font-weight: 600;
+	flex-wrap: wrap;
 
-		margin-block: 1rem;
+	padding: 2rem;
+
+	> li {
+		margin: 5px;
 	}
+
+	overflow-y: scroll;
 
 	::-webkit-scrollbar {
 		width: 10px;
@@ -104,22 +110,4 @@ const AboutMeText = styled.div`
 		background: rgba(71, 74, 81, 0.5);
 		border: 6px solid rgba(0, 0, 0, 0.2);
 	}
-
-	z-index: 2;
-`;
-
-const ProfileImageContainer = styled.div`
-	display: block;
-	width: 50%;
-	height: 400px;
-	position: absolute;
-	right: 10%;
-`;
-
-const ProfileImage = styled.img`
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
-
-	object-fit: cover;
 `;
