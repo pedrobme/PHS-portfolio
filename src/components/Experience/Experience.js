@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
-import img from "../../assets/img/profilepicture.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
-import ExperienceLi from "./ExperienceLi";
+import { useState } from "react";
 
-const AboutMeComponent = ({ theme, language }) => {
+import FrontEndUl from "./FrontendUl";
+import BackendUl from "./BackendUl";
+import OthersStacksUl from "./OthersStackUl";
+
+const ExperienceComponent = ({ theme, language }) => {
+	const [selectedStack, setSelectedStack] = useState("frontEnd");
+
 	return (
 		<SectionContainer
 			id="headerSecondOption"
@@ -14,32 +19,22 @@ const AboutMeComponent = ({ theme, language }) => {
 		>
 			<FitingDiv theme={theme}>
 				<h3>{translations[language].headerSecondOption}</h3>
-				<ExperiencesUl>
-					<ExperienceLi competence="git" level={1} />
-					<ExperienceLi competence="react" level={2} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-					<ExperienceLi competence="node" level={3} />
-				</ExperiencesUl>
+				<ListsContainer>
+					<StackSelectionUl selectedStack={selectedStack}>
+						<li onClick={() => setSelectedStack("frontEnd")}>Frontend</li>
+						<li onClick={() => setSelectedStack("backEnd")}>Backend</li>
+						<li onClick={() => setSelectedStack("others")}>Outras</li>
+					</StackSelectionUl>
+					{selectedStack === "frontEnd" && <FrontEndUl></FrontEndUl>}
+					{selectedStack === "backEnd" && <BackendUl></BackendUl>}
+					{selectedStack === "others" && <OthersStacksUl></OthersStacksUl>}
+				</ListsContainer>
 			</FitingDiv>
 		</SectionContainer>
 	);
 };
 
-export default AboutMeComponent;
+export default ExperienceComponent;
 
 // Styled Components
 
@@ -74,40 +69,44 @@ const FitingDiv = styled.div`
 	}
 `;
 
-const ExperiencesUl = styled.ul`
+const ListsContainer = styled.div`
 	background-color: #ffffff;
 	width: 100%;
 	height: 80%;
 
 	border-radius: 10px;
-
 	display: flex;
 
-	align-items: center;
-	justify-content: center;
-
-	flex-wrap: wrap;
+	justify-content: space-between;
 
 	padding: 2rem;
 
+	box-shadow: 1px 2px 10px black;
+`;
+
+const StackSelectionUl = styled.ul`
 	> li {
-		margin: 5px;
-	}
+		font-weight: 800;
+		padding: 1em;
 
-	overflow-y: scroll;
+		cursor: pointer;
 
-	::-webkit-scrollbar {
-		width: 10px;
-	}
+		:first-child {
+			background-color: ${(props) => {
+				return props.selectedStack === "frontEnd" ? "#dfdfdf" : "inherit";
+			}};
+		}
 
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: rgba(128, 128, 128, 0.5);
-	}
+		:nth-child(2) {
+			background-color: ${(props) => {
+				return props.selectedStack === "backEnd" ? "#dfdfdf" : "inherit";
+			}};
+		}
 
-	::-webkit-scrollbar-thumb {
-		border-radius: 2rem;
-		background: rgba(71, 74, 81, 0.5);
-		border: 6px solid rgba(0, 0, 0, 0.2);
+		:nth-child(3) {
+			background-color: ${(props) => {
+				return props.selectedStack === "others" ? "#dfdfdf" : "inherit";
+			}};
+		}
 	}
 `;

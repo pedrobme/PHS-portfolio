@@ -18,52 +18,28 @@ const Header = () => {
 			<HeaderContainer theme={theme}>
 				<PersonalLogo></PersonalLogo>
 				<HeaderOptionsDiv>
-					<Link
-						to="headerFirstOption"
-						spy={true}
-						smooth={true}
-						offset={-62}
-						duration={500}
-					>
+					<Link to="headerFirstOption" offset={-62} duration={200}>
 						<HeaderOption
 							optionId={"headerFirstOption"}
 							isSelected={selectedSection === "headerFirstOption"}
 							text={translations[language].headerFirstOption}
 						></HeaderOption>
 					</Link>
-					<Link
-						to="headerSecondOption"
-						spy={true}
-						smooth={true}
-						offset={-62}
-						duration={500}
-					>
+					<Link to="headerSecondOption" offset={-62} duration={200}>
 						<HeaderOption
 							optionId={"headerSecondOption"}
 							isSelected={selectedSection === "headerSecondOption"}
 							text={translations[language].headerSecondOption}
 						></HeaderOption>
 					</Link>
-					<Link
-						to="headerThirdOption"
-						spy={true}
-						offset={-62}
-						smooth={true}
-						duration={500}
-					>
+					<Link to="headerThirdOption" offset={-62} duration={200}>
 						<HeaderOption
 							optionId={"headerThirdOption"}
 							isSelected={selectedSection === "headerThirdOption"}
 							text={translations[language].headerThirdOption}
 						></HeaderOption>
 					</Link>
-					<Link
-						to="headerFourthOption"
-						spy={true}
-						offset={-62}
-						smooth={true}
-						duration={500}
-					>
+					<Link to="headerFourthOption" offset={-62} duration={200}>
 						<HeaderOption
 							optionId={"headerFourthOption"}
 							isSelected={selectedSection === "headerFourthOption"}

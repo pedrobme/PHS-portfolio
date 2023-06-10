@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
-import img from "../../assets/img/profilepicture.png";
+import img from "../../assets/img/comingsoonimg.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.css";
 
-const AboutMeComponent = ({ theme, language }) => {
+const ProjectsComponent = ({ theme, language }) => {
 	return (
 		<SectionContainer
 			id="headerThirdOption"
@@ -12,24 +14,37 @@ const AboutMeComponent = ({ theme, language }) => {
 			fontStyling={FontStyling}
 		>
 			<FitingDiv theme={theme}>
-				<h3>{translations[language].headerFirstOption}</h3>
-				<AboutMeText theme={theme}>
-					<p>{translations[language].resumeAboutMeP1}</p>
-					<p>{translations[language].resumeAboutMeP2}</p>
-					<p>{translations[language].resumeAboutMeP3}</p>
-					<p>{translations[language].resumeAboutMeP4}</p>
-					<p>{translations[language].resumeAboutMeP5}</p>
-					<p>{translations[language].resumeAboutMeP6}</p>
-				</AboutMeText>
-				<ProfileImageContainer>
-					<ProfileImage src={img} />
-				</ProfileImageContainer>
+				<h3>{translations[language].headerThirdOption}</h3>
+				<div
+					style={{
+						display: "block",
+						width: "100%",
+						height: "80%",
+						margin: "auto",
+						cursor: "pointer",
+					}}
+				>
+					<Carousel sx={{ height: "400px" }} fade>
+						<Carousel.Item interval={1500}>
+							<img
+								style={{
+									width: 400,
+									height: "400px",
+									borderRadius: "10px",
+								}}
+								className="d-block w-100"
+								src={img}
+								alt="Carroussel first element"
+							/>
+						</Carousel.Item>
+					</Carousel>
+				</div>
 			</FitingDiv>
 		</SectionContainer>
 	);
 };
 
-export default AboutMeComponent;
+export default ProjectsComponent;
 
 // Styled Components
 
@@ -61,65 +76,4 @@ const FitingDiv = styled.div`
 		pointer-events: none;
 		margin-bottom: 1rem;
 	}
-`;
-
-const AboutMeText = styled.div`
-	width: 40%;
-	padding: 1rem;
-
-	max-height: 300px;
-
-	overflow-y: scroll;
-
-	background-color: rgba(255, 255, 0, 0.95);
-
-	position: absolute;
-	left: 20px;
-	top: 100%;
-
-	border-radius: 10px;
-	z-index: 10;
-
-	user-select: none;
-
-	> p {
-		color: #000000;
-
-		font-weight: 600;
-
-		margin-block: 1rem;
-	}
-
-	::-webkit-scrollbar {
-		width: 10px;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: rgba(128, 128, 128, 0.5);
-	}
-
-	::-webkit-scrollbar-thumb {
-		border-radius: 2rem;
-		background: rgba(71, 74, 81, 0.5);
-		border: 6px solid rgba(0, 0, 0, 0.2);
-	}
-
-	z-index: 2;
-`;
-
-const ProfileImageContainer = styled.div`
-	display: block;
-	width: 50%;
-	height: 400px;
-	position: absolute;
-	right: 10%;
-`;
-
-const ProfileImage = styled.img`
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
-
-	object-fit: cover;
 `;

@@ -9,6 +9,7 @@ import ProjectsComponent from "../components/Projects/Projects";
 import CurriculumComponent from "../components/Curriculum/Curriculum";
 import { useEffect } from "react";
 import { SelectedSectionContext } from "../contexts/SelectedSectionContext";
+import Footer from "../components/Footer/Footer";
 
 export const FirstPage = () => {
 	const { theme, language } = useContext(LanguageAndThemeContext);
@@ -43,6 +44,7 @@ export const FirstPage = () => {
 				<ProjectsComponent theme={theme} language={language} />
 				<CurriculumComponent theme={theme} language={language} />
 			</MainContent>
+			<Footer theme={theme}></Footer>
 		</Container>
 	);
 };

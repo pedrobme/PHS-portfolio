@@ -20,9 +20,9 @@ const translations = {
 		resumeAboutMeP2:
 			"Meu nome é Pedro Holanda, tenho 29 anos, nascido e criado em Fortaleza-CE.",
 		resumeAboutMeP3:
-			"Sou formado em Engenharia Biomédica pela Universidade Federal de Pernambuco, onde conheci e me apaixonei pela programação. Decidi realizar uma transição de carreira para o desenvolvimento WEB e desde 2022 venho mergulhando e me aprofundando neste mundo.",
+			"Sou formado em Engenharia Biomédica pela Universidade Federal de Pernambuco, onde conheci e me apaixonei pela programação. Decidi focar meus estudos no desenvolvimento WEB, que hoje é minha paixão e venho cada vez mais mergulhando e me aprofundando neste universo.",
 		resumeAboutMeP4:
-			"Sou desenvolvedor Full Stack (Front End Heavy) e aqui no meu portifólio você pode conferir as minhas experiências e projetos.",
+			"Sou desenvolvedor Full Stack e aqui no meu portifólio você pode conferir as minhas experiências e projetos.",
 		resumeAboutMeP5:
 			"Sintam-se à vontade para entrar em contato nas minhas redes sociais.",
 		resumeAboutMeP6: "Um abraço!",

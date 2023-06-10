@@ -72,6 +72,7 @@ const AboutMeText = styled.div`
 	overflow-y: scroll;
 
 	background-color: rgba(255, 255, 0, 0.95);
+	box-shadow: 1px 2px 10px black;
 
 	position: absolute;
 	left: 5px;
@@ -114,6 +115,8 @@ const ProfileImageContainer = styled.div`
 	height: 400px;
 	position: absolute;
 	right: 10%;
+
+	box-shadow: 1px 2px 10px black;
 `;
 
 const ProfileImage = styled.img`
