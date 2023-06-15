@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
 import img from "../../assets/img/profilepicture.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AboutMeComponent = ({ theme, language }) => {
 	return (
@@ -12,18 +13,33 @@ const AboutMeComponent = ({ theme, language }) => {
 			fontStyling={FontStyling}
 		>
 			<FitingDiv theme={theme}>
-				<h3>{translations[language].headerFirstOption}</h3>
-				<AboutMeText theme={theme}>
-					<p>{translations[language].resumeAboutMeP1}</p>
-					<p>{translations[language].resumeAboutMeP2}</p>
-					<p>{translations[language].resumeAboutMeP3}</p>
-					<p>{translations[language].resumeAboutMeP4}</p>
-					<p>{translations[language].resumeAboutMeP5}</p>
-					<p>{translations[language].resumeAboutMeP6}</p>
-				</AboutMeText>
-				<ProfileImageContainer>
-					<ProfileImage src={img} />
-				</ProfileImageContainer>
+				<AnimatePresence>
+					<ContentDiv>
+						<TextContent>
+							<PresentationWrapper>
+								<TypewriterContainer>
+									{translations[language].presentation}
+								</TypewriterContainer>
+							</PresentationWrapper>
+							<PresentantionShortText
+								initial={{ x: -300, opacity: 0 }}
+								animate={{ x: 0, opacity: 1 }}
+								exit={{ x: 300, opacity: 0 }}
+								transition={{ delay: 2, duration: 0.6 }}
+							>
+								{translations[language].presentationText}
+							</PresentantionShortText>
+						</TextContent>
+						<ProfileImageContainer
+							initial={{ x: 300, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							exit={{ x: -300, opacity: 0 }}
+							transition={{ duration: 1 }}
+						>
+							<ProfileImage src={img} />
+						</ProfileImageContainer>
+					</ContentDiv>
+				</AnimatePresence>
 			</FitingDiv>
 		</SectionContainer>
 	);
@@ -43,86 +59,142 @@ const SectionContainer = styled.div`
 
 const FitingDiv = styled.div`
 	width: 80%;
-	min-width: 600px;
+	height: 100%;
 	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;
+`;
 
-	position: relative;
-	z-index: 0;
+const ContentDiv = styled.div`
+	height: 100%;
+	display: flex;
+`;
 
-	padding: 2rem;
+const TextContent = styled(motion.div)`
+	width: 70%;
+	height: 100%;
 
-	> h3 {
-		color: ${(props) => {
-			return themes[props.theme].pagesFontColor;
-		}};
-		font-size: 2.5rem;
+	display: flex;
+	flex-direction: column;
+
+	justify-content: flex-end;
+	z-index: 1;
+`;
+
+const PresentantionShortText = styled(motion.h2)`
+	color: black;
+	font-size: 2.5rem;
+	pointer-events: none;
+	font-weight: 800;
+	background-color: rgba(247, 150, 255, 0.5);
+
+	padding: 0.5rem;
+
+	@media (max-width: 820px) {
+		color: black;
+		font-size: 2rem;
+		pointer-events: none;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	@media (max-width: 750px) {
+		color: black;
+		font-size: 1.5rem;
+		pointer-events: none;
+		margin-bottom: 1rem;
+		font-weight: 800;
+	}
+
+	@media (max-width: 560px) {
+		color: black;
+		font-size: 1rem;
 		pointer-events: none;
 		margin-bottom: 1rem;
 	}
 `;
 
-const AboutMeText = styled.div`
-	width: 45%;
-	padding: 1rem;
+const PresentationWrapper = styled.div`
+	width: fit-content;
 
-	max-height: 300px;
-
-	overflow-y: scroll;
-
-	background-color: rgba(255, 255, 0, 0.95);
-	box-shadow: 1px 2px 10px black;
-
-	position: absolute;
-	left: 5px;
-	top: 100%;
-
-	border-radius: 10px;
-	z-index: 10;
-
-	user-select: none;
-
-	> p {
-		color: #000000;
-
-		font-weight: 600;
-
-		margin-block: 1rem;
+	> h1 {
+		color: black;
+		font-size: 1.3rem;
+		pointer-events: none;
+		margin-bottom: 1rem;
 	}
 
-	::-webkit-scrollbar {
-		width: 10px;
+	@media (max-width: 820px) {
+		> h1 {
+			color: black;
+			font-size: 1rem;
+			pointer-events: none;
+			margin-bottom: 1rem;
+		}
 	}
 
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: rgba(128, 128, 128, 0.5);
+	@media (max-width: 750px) {
+		> h1 {
+			color: black;
+			font-size: 0.7rem;
+			pointer-events: none;
+			margin-bottom: 1rem;
+		}
 	}
 
-	::-webkit-scrollbar-thumb {
-		border-radius: 2rem;
-		background: rgba(71, 74, 81, 0.5);
-		border: 6px solid rgba(0, 0, 0, 0.2);
+	@media (max-width: 560px) {
+		> h1 {
+			color: black;
+			font-size: 0.8rem;
+			pointer-events: none;
+			margin-bottom: 1rem;
+		}
 	}
-
-	z-index: 2;
 `;
 
-const ProfileImageContainer = styled.div`
-	display: block;
-	width: 50%;
-	height: 400px;
+const ProfileImageContainer = styled(motion.div)`
 	position: absolute;
-	right: 10%;
-
-	box-shadow: 1px 2px 10px black;
+	bottom: 0;
+	right: 10px;
+	z-index: 0;
+	width: 80%;
+	height: 80%;
 `;
 
 const ProfileImage = styled.img`
+	position: absolute;
+	bottom: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
-	border-radius: 10px;
 
-	object-fit: cover;
+	object-fit: contain;
+
+	@media (max-width: 715px) {
+		object-fit: cover;
+	}
+`;
+
+const typingAnimation = keyframes`
+  from { width: 0 }
+  to { width: 100% }
+`;
+
+const blinkCaretAnimation = keyframes`
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+`;
+
+const TypewriterContainer = styled.h1`
+	display: inline-block;
+	width: fit-content;
+	color: #fff;
+	font-family: monospace;
+	overflow: hidden;
+	border-right: 0.15em solid orange;
+	white-space: nowrap;
+	margin: 0 0;
+	letter-spacing: 0.15em;
+	animation: ${typingAnimation} 1.5s steps(50, end),
+		${blinkCaretAnimation} 0.5s step-end infinite;
 `;

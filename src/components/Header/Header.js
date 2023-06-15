@@ -7,16 +7,23 @@ import HeaderOption from "./HeaderOption";
 import { PersonalLogo } from "./PersonalLogo";
 import { Link } from "react-scroll";
 import { SelectedSectionContext } from "../../contexts/SelectedSectionContext";
+import brflag from "../../assets/img/brazilflag.png";
+import usflag from "../../assets/img/usflag.png";
+import spflag from "../../assets/img/spainflag.png";
+import menumobile from "../../assets/img/menumobile.png";
+import HeaderMobileComponent from "../HeaderMobile/HeaderMobile";
 
 const Header = () => {
-	const { theme, language } = useContext(LanguageAndThemeContext);
+	const { theme, language, handleLanguageChange } = useContext(
+		LanguageAndThemeContext
+	);
 
 	const { selectedSection } = useContext(SelectedSectionContext);
 
 	return (
 		<>
 			<HeaderContainer theme={theme}>
-				<PersonalLogo></PersonalLogo>
+				<PersonalLogo logoSize="6rem"></PersonalLogo>
 				<HeaderOptionsDiv>
 					<Link to="headerFirstOption" offset={-62} duration={200}>
 						<HeaderOption
@@ -25,7 +32,7 @@ const Header = () => {
 							text={translations[language].headerFirstOption}
 						></HeaderOption>
 					</Link>
-					<Link to="headerSecondOption" offset={-62} duration={200}>
+					<Link to="headerSecondOption" offset={-45} duration={200}>
 						<HeaderOption
 							optionId={"headerSecondOption"}
 							isSelected={selectedSection === "headerSecondOption"}
@@ -39,16 +46,35 @@ const Header = () => {
 							text={translations[language].headerThirdOption}
 						></HeaderOption>
 					</Link>
-					<Link to="headerFourthOption" offset={-62} duration={200}>
+					{/* <Link to="headerFourthOption" offset={-62} duration={200}>
 						<HeaderOption
 							optionId={"headerFourthOption"}
 							isSelected={selectedSection === "headerFourthOption"}
 							text={translations[language].headerFourthOption}
 						></HeaderOption>
-					</Link>
+					</Link> */}
 				</HeaderOptionsDiv>
-				<ContactMeButton>{translations[language].contactMe}</ContactMeButton>
+				<LanguageSelectionContainer language={language}>
+					<img
+						onClick={() => handleLanguageChange("pt")}
+						alt="Brazil flag icon"
+						src={brflag}
+					/>
+					<img
+						onClick={() => handleLanguageChange("en")}
+						alt="United States flag icon"
+						src={usflag}
+					/>
+					<img
+						onClick={() => handleLanguageChange("es")}
+						alt="Spain flag icon"
+						src={spflag}
+					/>
+				</LanguageSelectionContainer>
 			</HeaderContainer>
+
+			<HeaderMobileComponent></HeaderMobileComponent>
+
 			<HeaderPhantom></HeaderPhantom>
 		</>
 	);
@@ -66,8 +92,6 @@ const HeaderContainer = styled.div`
 	top: 0;
 	left: 0;
 
-	box-shadow: 1px 2px 10px black;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -76,10 +100,21 @@ const HeaderContainer = styled.div`
 		return themes[props.theme].header;
 	}};
 	z-index: 5;
+
+	@media (max-width: 1000px) {
+		display: none;
+	}
 `;
 
 const HeaderPhantom = styled.div`
-	height: 4rem;
+	@media (min-width: 1000px) {
+		width: 100%;
+		height: 4rem;
+	}
+	@media (max-width: 1000px) {
+		width: 100%;
+		height: 5rem;
+	}
 `;
 
 const HeaderOptionsDiv = styled.div`
@@ -94,8 +129,25 @@ const HeaderOptionsDiv = styled.div`
 	}
 `;
 
-const ContactMeButton = styled.div`
+const LanguageSelectionContainer = styled.div`
 	border: none;
+	> img {
+		width: 30px;
+		margin-inline: 0.5rem;
+		border-radius: 100%;
+	}
+
+	> img:first-child {
+		border: ${(props) => (props.language === "pt" ? "2px solid blue" : "none")};
+	}
+
+	> img:nth-child(2) {
+		border: ${(props) => (props.language === "en" ? "2px solid blue" : "none")};
+	}
+
+	> img:nth-child(3) {
+		border: ${(props) => (props.language === "es" ? "2px solid blue" : "none")};
+	}
 
 	font-weight: 900;
 	cursor: pointer;

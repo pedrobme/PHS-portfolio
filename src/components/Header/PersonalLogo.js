@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import { translations } from "../../CONSTS/TRANSLATIONS.js";
 
-export const PersonalLogo = () => {
+export const PersonalLogo = ({ logoSize }) => {
 	const [isHovered, setIsHovered] = useState(false);
 
 	function handleMouseOver() {
@@ -16,15 +15,16 @@ export const PersonalLogo = () => {
 
 	return (
 		<MainContentDiv
+			logoSize={logoSize}
 			onMouseOver={handleMouseOver}
 			onMouseOut={handleMouseOut}
 			isHovered={isHovered}
-			animate={{ rotate: isHovered ? 0 : 60 }}
+			animate={{ rotate: isHovered ? 0 : 45 }}
 			transition={{ type: "spring" }}
 		>
 			<motion.div
 				isHovered={isHovered}
-				animate={{ rotate: isHovered ? 0 : -60 }}
+				animate={{ rotate: isHovered ? 0 : -45 }}
 			>
 				<span>{isHovered ? "Pedro" : "P"}</span>
 				<span>{isHovered ? "Holanda" : "H"}</span>
@@ -36,8 +36,8 @@ export const PersonalLogo = () => {
 
 // Styled Components
 const MainContentDiv = styled(motion.div)`
-	width: 6rem;
-	height: 6rem;
+	width: ${(props) => props.logoSize};
+	height: ${(props) => props.logoSize};
 	background-color: ${(props) => (props.isHovered ? "#FFFF00" : "#000000")};
 
 	display: flex;
@@ -47,10 +47,6 @@ const MainContentDiv = styled(motion.div)`
 	justify-content: center;
 	align-items: center;
 
-	position: relative;
-	top: 2rem;
-	left: 2rem;
-
 	border-radius: 20%;
 
 	transition-property: background-color;
@@ -59,42 +55,62 @@ const MainContentDiv = styled(motion.div)`
 
 	cursor: pointer;
 
-	> div {
-		font-size: ${(props) => (props.isHovered ? "0.8rem" : "1.2rem")};
-		font-weight: 700;
+	@media (min-width: 1000px) {
+		position: relative;
+		top: 2rem;
+		left: 2rem;
 
-		display: flex;
-		flex-direction: column;
+		> div {
+			font-size: ${(props) => (props.isHovered ? "0.8rem" : "1.2rem")};
+			font-weight: 700;
 
-		width: fit-content;
+			display: flex;
+			flex-direction: column;
 
-		letter-spacing: 5px;
+			width: fit-content;
 
-		color: ${(props) => (props.isHovered ? "#000000" : "#ffffff")};
+			letter-spacing: 5px;
 
-		transition-property: color;
+			color: ${(props) => (props.isHovered ? "#000000" : "#ffffff")};
 
-		transition-duration: 1s;
+			transition-property: color;
 
-		padding: 2rem;
+			transition-duration: 1s;
 
-		> span {
-			margin-block: 0.3rem;
+			padding: 2rem;
+
+			> span {
+				margin-block: 0.3rem;
+			}
 		}
 	}
-`;
 
-const FirstLettersName = styled.span`
-	font-size: 1rem;
-	font-weight: 700;
+	@media (max-width: 1000px) {
+		position: relative;
+		top: 1rem;
+		left: 1rem;
+		> div {
+			font-size: ${(props) => (props.isHovered ? "0.533rem" : "0.8rem")};
+			font-weight: 700;
 
-	width: fit-content;
+			display: flex;
+			flex-direction: column;
 
-	letter-spacing: 5px;
+			width: fit-content;
 
-	color: ${(props) => (props.isHovered ? "#000000" : "#FFFF00")};
+			letter-spacing: 3px;
 
-	transition-property: all;
+			color: ${(props) => (props.isHovered ? "#000000" : "#ffffff")};
 
-	transition-duration: 1s;
+			transition-property: color;
+
+			transition-duration: 1s;
+
+			padding: 1rem;
+
+			> span {
+				margin-block: 0.2rem;
+			}
+		}
+	}
 `;

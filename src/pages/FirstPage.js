@@ -42,7 +42,7 @@ export const FirstPage = () => {
 				<AboutMeComponent theme={theme} language={language} />
 				<ExperienceComponent theme={theme} language={language} />
 				<ProjectsComponent theme={theme} language={language} />
-				<CurriculumComponent theme={theme} language={language} />
+				{/* <CurriculumComponent theme={theme} language={language} /> */}
 			</MainContent>
 			<Footer theme={theme}></Footer>
 		</Container>
@@ -53,7 +53,7 @@ export const FirstPage = () => {
 
 const Container = styled.div`
 	min-height: 100vh;
-	width: 100vw;
+	min-width: 100vw;
 
 	display: flex;
 	flex-direction: column;

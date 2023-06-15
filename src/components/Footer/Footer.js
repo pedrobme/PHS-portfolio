@@ -43,7 +43,6 @@ export default function Footer() {
 
 const FooterContainer = styled.div`
 	width: 100%;
-	min-width: 600px;
 
 	height: 120px;
 

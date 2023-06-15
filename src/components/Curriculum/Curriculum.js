@@ -43,7 +43,6 @@ const SectionContainer = styled.div`
 
 const FitingDiv = styled.div`
 	width: 80%;
-	min-width: 600px;
 	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;

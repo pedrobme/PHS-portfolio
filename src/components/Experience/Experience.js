@@ -49,7 +49,6 @@ const SectionContainer = styled.div`
 const FitingDiv = styled.div`
 	width: 80%;
 	height: 100%;
-	min-width: 600px;
 	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;
@@ -60,9 +59,7 @@ const FitingDiv = styled.div`
 	padding: 2rem;
 
 	> h3 {
-		color: ${(props) => {
-			return themes[props.theme].pagesFontColor;
-		}};
+		color: black;
 		font-size: 2.5rem;
 		pointer-events: none;
 		margin-bottom: 1rem;

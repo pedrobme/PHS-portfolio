@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
-import img from "../../assets/img/comingsoonimg.png";
+import img from "../../assets/img/usflag.png";
+import img2 from "../../assets/img/brazilflag.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
 import Carousel from "react-bootstrap/Carousel";
@@ -24,17 +25,27 @@ const ProjectsComponent = ({ theme, language }) => {
 						cursor: "pointer",
 					}}
 				>
-					<Carousel sx={{ height: "400px" }} fade>
+					<Carousel sx={{ height: "100" }} variant="dark">
 						<Carousel.Item interval={1500}>
 							<img
 								style={{
-									width: 400,
-									height: "400px",
 									borderRadius: "10px",
+									height: "350px",
 								}}
 								className="d-block w-100"
 								src={img}
 								alt="Carroussel first element"
+							/>
+						</Carousel.Item>
+						<Carousel.Item interval={1500}>
+							<img
+								style={{
+									borderRadius: "10px",
+									height: "350px",
+								}}
+								className="d-block w-100"
+								src={img2}
+								alt="Carroussel second element"
 							/>
 						</Carousel.Item>
 					</Carousel>
@@ -58,7 +69,7 @@ const SectionContainer = styled.div`
 
 const FitingDiv = styled.div`
 	width: 80%;
-	min-width: 600px;
+	height: 100%;
 	max-width: calc(60 / 100 * 1480px);
 
 	margin: auto;
@@ -69,9 +80,7 @@ const FitingDiv = styled.div`
 	padding: 2rem;
 
 	> h3 {
-		color: ${(props) => {
-			return themes[props.theme].pagesFontColor;
-		}};
+		color: black;
 		font-size: 2.5rem;
 		pointer-events: none;
 		margin-bottom: 1rem;

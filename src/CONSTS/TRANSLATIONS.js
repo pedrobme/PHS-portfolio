@@ -7,7 +7,9 @@ const translations = {
 		headerFourthOption: "Resume",
 		contactMe: "Contact me",
 		//-------------ABOUT ME COMPONENT----------------------//
-		resumeAboutMe: "",
+		presentation: "Hello, I'm Pedro Holanda!",
+		presentationText:
+			"Passionate Fullstack Developer who is enthusiastic about technologies and building modern and creative solutions.",
 	},
 	pt: {
 		headerFirstOption: "Sobre mim",
@@ -26,6 +28,9 @@ const translations = {
 		resumeAboutMeP5:
 			"Sintam-se à vontade para entrar em contato nas minhas redes sociais.",
 		resumeAboutMeP6: "Um abraço!",
+		presentation: "Olá, eu sou Pedro Holanda!",
+		presentationText:
+			"Desenvolvedor Fullstack apaixonado por tecnologias e por construir soluções modernas e criativas.",
 	},
 	es: {
 		headerFirstOption: "Sobre mi",
@@ -33,6 +38,9 @@ const translations = {
 		headerThirdOption: "Proyectos",
 		headerFourthOption: "Currículo",
 		contactMe: "Contáctame",
+		presentation: "¡Hola, soy Pedro Holanda!",
+		presentationText:
+			"Desarrollador Fullstack apasionado por la tecnología y por construir soluciones modernas y creativas.",
 	},
 };
 

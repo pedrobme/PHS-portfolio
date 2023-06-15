@@ -3,7 +3,7 @@ export const themes = {
 		firstPageBackground: "#595959",
 		header: "#ffffff",
 		headerButtons: "#000000",
-		pagesBackground: "#595959",
+		pagesBackground: "#ffffff",
 		pagesFontColor: "#ffffff",
 		experiencePalettes: {
 			firstLevelPalette: {
