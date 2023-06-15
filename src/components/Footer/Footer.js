@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import instagramimg from "../../assets/img/instagram.png";
 import whatsappimg from "../../assets/img/whatsapp.png";
+import { translations } from "../../CONSTS/TRANSLATIONS";
 
-export default function Footer() {
+export default function Footer({ language }) {
 	const jsx = (
 		<FooterContainer>
 			<Socials>
@@ -24,7 +25,7 @@ export default function Footer() {
 				</a>
 			</Socials>
 			<p>
-				©2023 por Pedro Holanda de Sá. Criado por{" "}
+				{translations[language].footerText}{" "}
 				<span>
 					<a
 						href="http://www.linkedin.com/in/pedrobme"

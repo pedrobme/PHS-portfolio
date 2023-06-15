@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
+import { translations } from "../../CONSTS/TRANSLATIONS";
 import { LanguageAndThemeContext } from "../../contexts/LanguageAndThemeContext";
 
 const ExperienceLi = ({ competence, level }) => {
@@ -14,9 +15,9 @@ const ExperienceLi = ({ competence, level }) => {
 				<IntermediaryLevel level={level} theme={theme} />
 				<AdvancedLevel level={level} theme={theme} />
 			</ExperienceBar>
-			<p>{level === 1 && "Basico"}</p>
-			<p>{level === 2 && "Intermediario"}</p>
-			<p>{level === 3 && "Avançado"}</p>
+			<p>{level === 1 && translations[language].basic}</p>
+			<p>{level === 2 && translations[language].intermediate}</p>
+			<p>{level === 3 && translations[language].advanced}</p>
 		</ExperienceLiElement>
 	);
 

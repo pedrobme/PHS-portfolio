@@ -5,11 +5,17 @@ const translations = {
 		headerSecondOption: "Experience",
 		headerThirdOption: "Projects",
 		headerFourthOption: "Resume",
+		others: "Others",
 		contactMe: "Contact me",
+		advanced: "Advanced",
+		intermediate: "Intermediate",
+		basic: "Basic",
 		//-------------ABOUT ME COMPONENT----------------------//
 		presentation: "Hello, I'm Pedro Holanda!",
 		presentationText:
 			"Passionate Fullstack Developer who is enthusiastic about technologies and building modern and creative solutions.",
+		//-------------FOOTER COMPONENT----------------------//
+		footerText: "©2023 by Pedro Holanda de Sá. Created by",
 	},
 	pt: {
 		headerFirstOption: "Sobre mim",
@@ -17,6 +23,10 @@ const translations = {
 		headerThirdOption: "Projetos",
 		headerFourthOption: "Currículo",
 		contactMe: "Entre em contato",
+		others: "Outros",
+		advanced: "Avançado",
+		intermediate: "Intermediário",
+		basic: "Básico",
 		//-------------ABOUT ME COMPONENT----------------------//
 		resumeAboutMeP1: "Olá mundo!",
 		resumeAboutMeP2:
@@ -31,6 +41,8 @@ const translations = {
 		presentation: "Olá, eu sou Pedro Holanda!",
 		presentationText:
 			"Desenvolvedor Fullstack apaixonado por tecnologias e por construir soluções modernas e criativas.",
+		//-------------FOOTER COMPONENT----------------------//
+		footerText: "©2023 por Pedro Holanda de Sá. Created by",
 	},
 	es: {
 		headerFirstOption: "Sobre mi",
@@ -38,9 +50,15 @@ const translations = {
 		headerThirdOption: "Proyectos",
 		headerFourthOption: "Currículo",
 		contactMe: "Contáctame",
+		others: "Otras",
+		advanced: "Avanzado",
+		intermediate: "Intermedio",
+		basic: "Básico",
 		presentation: "¡Hola, soy Pedro Holanda!",
 		presentationText:
 			"Desarrollador Fullstack apasionado por la tecnología y por construir soluciones modernas y creativas.",
+		//-------------FOOTER COMPONENT----------------------//
+		footerText: "©2023 por Pedro Holanda de Sá. Creado por",
 	},
 };
 

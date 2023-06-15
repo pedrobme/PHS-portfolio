@@ -44,7 +44,7 @@ export const FirstPage = () => {
 				<ProjectsComponent theme={theme} language={language} />
 				{/* <CurriculumComponent theme={theme} language={language} /> */}
 			</MainContent>
-			<Footer theme={theme}></Footer>
+			<Footer theme={theme} language={language}></Footer>
 		</Container>
 	);
 };

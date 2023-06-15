@@ -23,7 +23,9 @@ const ExperienceComponent = ({ theme, language }) => {
 					<StackSelectionUl selectedStack={selectedStack}>
 						<li onClick={() => setSelectedStack("frontEnd")}>Frontend</li>
 						<li onClick={() => setSelectedStack("backEnd")}>Backend</li>
-						<li onClick={() => setSelectedStack("others")}>Outras</li>
+						<li onClick={() => setSelectedStack("others")}>
+							{translations[language].others}
+						</li>
 					</StackSelectionUl>
 					{selectedStack === "frontEnd" && <FrontEndUl></FrontEndUl>}
 					{selectedStack === "backEnd" && <BackendUl></BackendUl>}
