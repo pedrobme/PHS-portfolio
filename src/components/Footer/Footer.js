@@ -52,6 +52,7 @@ const FooterContainer = styled.div`
 	align-items: center;
 	justify-content: space-evenly;
 
+	background-color: #dbdbdb;
 	* {
 		font-weight: 800;
 		text-align: center;

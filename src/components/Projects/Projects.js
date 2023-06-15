@@ -6,10 +6,47 @@ import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const ProjectsComponent = ({ theme, language }) => {
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => {
+			const windowHeight = window.innerHeight;
+			const scrollTop =
+				window.pageYOffset || document.documentElement.scrollTop;
+			const element = document.getElementById("headerThirdOption");
+
+			if (element) {
+				const elementTop = element.offsetTop;
+				const elementHeight = element.offsetHeight;
+				const elementBottom = elementTop + elementHeight;
+
+				if (
+					scrollTop + windowHeight >= elementTop + 300 &&
+					scrollTop <= elementBottom - 300
+				) {
+					setIsVisible(true);
+				} else {
+					setIsVisible(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", onScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		};
+	}, []);
+
 	return (
 		<SectionContainer
+			initial={{ opacity: 0 }}
+			animate={{ opacity: isVisible ? 1 : 0 }}
+			transition={{ duration: 0.5 }}
 			id="headerThirdOption"
 			theme={theme}
 			fontStyling={FontStyling}
@@ -59,7 +96,7 @@ export default ProjectsComponent;
 
 // Styled Components
 
-const SectionContainer = styled.div`
+const SectionContainer = styled(motion.div)`
 	height: calc(100vh - 5rem);
 
 	background-color: ${(props) => {

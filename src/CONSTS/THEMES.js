@@ -1,6 +1,6 @@
 export const themes = {
 	dark: {
-		firstPageBackground: "#595959",
+		firstPageBackground: "#ffffff",
 		header: "#ffffff",
 		headerButtons: "#000000",
 		pagesBackground: "#ffffff",

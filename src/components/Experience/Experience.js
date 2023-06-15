@@ -2,17 +2,53 @@ import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import FrontEndUl from "./FrontendUl";
 import BackendUl from "./BackendUl";
 import OthersStacksUl from "./OthersStackUl";
+import { motion } from "framer-motion";
 
 const ExperienceComponent = ({ theme, language }) => {
 	const [selectedStack, setSelectedStack] = useState("frontEnd");
 
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => {
+			const windowHeight = window.innerHeight;
+			const scrollTop =
+				window.pageYOffset || document.documentElement.scrollTop;
+			const element = document.getElementById("headerSecondOption");
+
+			if (element) {
+				const elementTop = element.offsetTop;
+				const elementHeight = element.offsetHeight;
+				const elementBottom = elementTop + elementHeight;
+
+				if (
+					scrollTop + windowHeight >= elementTop + 200 &&
+					scrollTop <= elementBottom - 400
+				) {
+					setIsVisible(true);
+				} else {
+					setIsVisible(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", onScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		};
+	}, []);
+
 	return (
 		<SectionContainer
+			initial={{ opacity: 0 }}
+			animate={{ opacity: isVisible ? 1 : 0 }}
+			transition={{ duration: 0.5 }}
 			id="headerSecondOption"
 			theme={theme}
 			fontStyling={FontStyling}
@@ -40,7 +76,7 @@ export default ExperienceComponent;
 
 // Styled Components
 
-const SectionContainer = styled.div`
+const SectionContainer = styled(motion.div)`
 	height: calc(100vh - 5rem);
 
 	background-color: ${(props) => {
