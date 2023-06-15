@@ -48,6 +48,10 @@ const ExperienceLiElement = styled.li`
 		text-align: end;
 		pointer-events: none;
 	}
+
+	@media (max-width: 650px) {
+		width: 80%;
+	}
 `;
 
 const ExperienceBar = styled.div`

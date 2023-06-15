@@ -19,7 +19,7 @@ const HeaderMobileComponent = () => {
 			<HeaderContentMobile theme={theme}>
 				<PersonalLogo logoSize="4rem"></PersonalLogo>
 				<img
-					onClick={() => setMenuIsVisible(true)}
+					// onClick={() => setMenuIsVisible(true)}
 					alt="Icon menu mobile"
 					src={menumobile}
 				/>

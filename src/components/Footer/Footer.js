@@ -10,7 +10,7 @@ export default function Footer() {
 					href="https://www.instagram.com/pedroholanda94/"
 					target={"_blank"}
 					rel="noreferrer"
-					title="instagram icons"
+					title="Instagram.com/pedroholanda94"
 				>
 					<img style={{ width: 30 }} src={instagramimg} alt="instagram icons" />
 				</a>
@@ -18,7 +18,7 @@ export default function Footer() {
 					href="http://wa.me/5585991949958"
 					target={"_blank"}
 					rel="noreferrer"
-					title="whatsapp icons"
+					title="Whatsapp (+55 85 991949958)"
 				>
 					<img style={{ width: 30 }} src={whatsappimg} alt="whatsapp icons" />
 				</a>
@@ -53,6 +53,7 @@ const FooterContainer = styled.div`
 
 	* {
 		font-weight: 800;
+		text-align: center;
 	}
 `;
 

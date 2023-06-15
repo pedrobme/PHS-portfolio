@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
-import img from "../../assets/img/usflag.png";
-import img2 from "../../assets/img/brazilflag.png";
+import img from "../../assets/img/comingsoonimg.png";
+import img2 from "../../assets/img/comingsoonimg.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
 import Carousel from "react-bootstrap/Carousel";
