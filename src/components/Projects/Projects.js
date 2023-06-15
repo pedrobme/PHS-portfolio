@@ -124,4 +124,9 @@ const FitingDiv = styled.div`
 		pointer-events: none;
 		margin-bottom: 1rem;
 	}
+
+	@media (max-width: 580px) {
+		width: 100%;
+		padding: 1rem;
+	}
 `;

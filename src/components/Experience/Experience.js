@@ -102,6 +102,11 @@ const FitingDiv = styled.div`
 		pointer-events: none;
 		margin-bottom: 1rem;
 	}
+
+	@media (max-width: 580px) {
+		width: 100%;
+		padding: 1rem;
+	}
 `;
 
 const ListsContainer = styled.div`
@@ -117,12 +122,16 @@ const ListsContainer = styled.div`
 	padding: 2rem;
 
 	box-shadow: 1px 2px 10px black;
+
+	@media (max-width: 580px) {
+		padding: 0.5rem;
+	}
 `;
 
 const StackSelectionUl = styled.ul`
 	> li {
 		font-weight: 800;
-		padding: 1em;
+		padding: 1rem;
 
 		cursor: pointer;
 
@@ -142,6 +151,12 @@ const StackSelectionUl = styled.ul`
 			background-color: ${(props) => {
 				return props.selectedStack === "others" ? "#dfdfdf" : "inherit";
 			}};
+		}
+	}
+
+	@media (max-width: 580px) {
+		> li {
+			padding: 0.5rem;
 		}
 	}
 `;
