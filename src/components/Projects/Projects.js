@@ -63,22 +63,24 @@ const ProjectsComponent = ({ theme, language }) => {
 					}}
 				>
 					<Carousel sx={{ height: "100" }} variant="dark">
-						<Carousel.Item interval={1500}>
+						<Carousel.Item interval={3000}>
 							<img
 								style={{
 									borderRadius: "10px",
 									height: "350px",
+									objectFit: "contain",
 								}}
 								className="d-block w-100"
 								src={img}
 								alt="Carroussel first element"
 							/>
 						</Carousel.Item>
-						<Carousel.Item interval={1500}>
+						<Carousel.Item interval={3000}>
 							<img
 								style={{
 									borderRadius: "10px",
 									height: "350px",
+									objectFit: "contain",
 								}}
 								className="d-block w-100"
 								src={img2}
