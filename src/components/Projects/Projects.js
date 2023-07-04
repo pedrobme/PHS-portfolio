@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { themes } from "../../CONSTS/THEMES";
-import img from "../../assets/img/comingsoonimg.png";
-import img2 from "../../assets/img/comingsoonimg.png";
+import parrots from "../../assets/img/parrots.png";
+import uol from "../../assets/img/uol.png";
 import { translations } from "../../CONSTS/TRANSLATIONS";
 import { FontStyling } from "../../CONSTS/FONTSTYLE";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import CarouselItemBody from "./CarouselItemBody";
 
 const ProjectsComponent = ({ theme, language }) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -63,28 +64,22 @@ const ProjectsComponent = ({ theme, language }) => {
 					}}
 				>
 					<Carousel sx={{ height: "100" }} variant="dark">
-						<Carousel.Item interval={3000}>
-							<img
-								style={{
-									borderRadius: "10px",
-									height: "350px",
-									objectFit: "contain",
-								}}
-								className="d-block w-100"
-								src={img}
-								alt="Carroussel first element"
+						<Carousel.Item interval={5000}>
+							<CarouselItemBody
+								projectImage={parrots}
+								repoLink={"https://github.com/pedrobme/Parrots-card-game"}
+								deployLink={"https://projeto4-parrotscardgame-lime.vercel.app/"}
+								projectDetails={translations[language].parrotsDetails}
+								projectTitle={translations[language].parrotsTitle}
 							/>
 						</Carousel.Item>
-						<Carousel.Item interval={3000}>
-							<img
-								style={{
-									borderRadius: "10px",
-									height: "350px",
-									objectFit: "contain",
-								}}
-								className="d-block w-100"
-								src={img2}
-								alt="Carroussel second element"
+						<Carousel.Item interval={5000}>
+							<CarouselItemBody
+								projectImage={uol}
+								repoLink={"https://github.com/pedrobme/BatePapoUol"}
+								deployLink={"https://batepapouol-silk.vercel.app/"}
+								projectDetails={translations[language].uolDetails}
+								projectTitle={translations[language].uolTitle}
 							/>
 						</Carousel.Item>
 					</Carousel>

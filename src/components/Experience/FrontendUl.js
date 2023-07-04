@@ -22,7 +22,7 @@ const FrontEndUl = () => {
 			<ExperienceLi competence="React" level={3} />
 			<ExperienceLi competence="Styled Components" level={3} />
 			<ExperienceLi competence="Material UI" level={2} />
-			<ExperienceLi competence="Next.js" level={1} />
+			<ExperienceLi competence="Next.js" level={2} />
 		</ExperiencesUl>
 	);
 
